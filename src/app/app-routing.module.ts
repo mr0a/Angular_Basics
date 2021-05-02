@@ -6,6 +6,7 @@ import {ScriptEditComponent} from './script-edit/script-edit.component'
 import {NotFoundComponent} from './not-found/not-found.component'
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   },
   {
     path: 'script/create',

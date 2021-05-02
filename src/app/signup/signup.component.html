@@ -1,0 +1,36 @@
+<div class="col-md-8 offset-md-2 mt-5 border border-primary rounded p-5">
+    <h1 class="text-center">Signup</h1>
+    <form [formGroup]="form" (ngSubmit)="createUser()">
+        <div class="form-group">
+            <label for="exampleInputPassword1">Full Name</label>
+            <input type="text" class="form-control" placeholder="Enter fullname" formControlName="Name" #Name>
+            <div *ngIf="f.Name.touched && f.Name.invalid" class="text-danger">
+              <p *ngIf="f.Name.errors?.required">Name is required</p>
+              <p *ngIf="f.Name.errors?.minlength">Name must contain atleast 3 characters</p>
+            </div>
+          </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" formControlName="Email" #Email aria-describedby="emailHelp"
+                placeholder="Enter email">
+            <div *ngIf="f.Email.touched && f.Email.invalid" class="text-danger">
+                <div *ngIf="f.Email.errors?.required">
+                    <p>Email is required</p>
+                </div>
+                <div *ngIf="f.Email.errors?.email">
+                    <p>Email is invalid</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" formControlName="Password" #Password placeholder="Password">
+            <div *ngIf="f.Password.touched && f.Password.invalid" class="text-danger">
+                <p *ngIf="f.Password.errors?.required">Password is required</p>
+                <p *ngIf="f.Password.errors?.minlength">Password must contain atleast 8 characters</p>
+            </div>
+        </div>
+        <button type="submit" (click)="handleClick()" [disabled]="f.Email.errors || f.Password.errors"
+            class="btn btn-primary btn-block">Submit</button>
+    </form>
+</div>

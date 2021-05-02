@@ -12,4 +12,7 @@ export class NavmenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public userData = JSON.parse(localStorage.getItem('currentUser')??'{}')
+  public loggedIn = this.userData.loggedIn
+
 }
